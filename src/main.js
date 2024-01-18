@@ -9,6 +9,11 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 
+// const routes = [
+//     {
+//         path = ''
+//     }
+// ];
 
 AOS.init();
 createApp(App).mount('#app')
