@@ -41,6 +41,11 @@
         display: flex;
         justify-content: space-between;
         padding: 10px 5%;
+        position: fixed;
+        z-index: 999;
+        top: 0;
+        right: 0;
+        left: 0;
     }
 
     .logo-1 img {
