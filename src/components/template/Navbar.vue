@@ -11,7 +11,7 @@
         <div class="navbar">
             <nav>
                 <a href=""><p>Home</p></a>
-                <a href=""><p>Menus</p></a>
+                <a href="/salad-menus"><p>Menus</p></a>
                 <a href=""><p>About Us</p></a>
                 <a href=""><p>Gallery</p></a>
                 <a href=""><p>Contact</p></a>
@@ -57,6 +57,11 @@
     nav a {
         color: #fff;
         text-decoration: none;
+        transition: all 0.3s ease-in;
+    }
+
+    nav a:hover {
+        color: #FF9800;
     }
 
     i {
