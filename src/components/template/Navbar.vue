@@ -1,5 +1,5 @@
 <template>
-    <div class="logo-navbar">
+    <div class="logo-navbar" id="navbar">
         <div class="logo">
             <div class="logo-1">
                 <a href=""><img src="@/assets/img/logowhite.png" alt=""></a>
@@ -21,15 +21,39 @@
             </nav>
         </div>
         <div class="dark-light">
-            <div class="dark">
-                <i class="bi bi-moon-stars-fill"></i>
-            </div>
-            <div class="light">
-                <i class="bi bi-sun-fill"></i>
-            </div>
+          <div class="dark" @click="toggleDarkMode">
+            <i v-if="!isDarkMode" class="bi bi-moon-stars-fill"></i>
+            <i v-if="isDarkMode" class="bi bi-sun-fill"></i>
+          </div>
+          <div class="light">
+            <i class="bi bi-sun-fill"></i>
+          </div>
         </div>
     </div>
 </template>
+<script>
+export default {
+    data() {
+        return {
+            isDarkMode: false,
+        };
+    },
+    mounted() {
+        this.isDarkMode = localStorage.getItem('isDarkMode') === 'true';
+        this.setBodyBackgroundColor();
+    },
+    methods: {
+        toggleDarkMode() {
+            this.isDarkMode = !this.isDarkMode;
+            localStorage.setItem('isDarkMode', this.isDarkMode.toString());
+            this.setBodyBackgroundColor();
+        },
+        setBodyBackgroundColor() {
+            document.body.style.backgroundColor = this.isDarkMode ? '#1D1D1D' : '#ffffff';
+        },
+    },
+};
+</script>
 <style>
     * {
         margin: 0;
@@ -94,5 +118,10 @@
 
     .light {
         display: none;
+    }
+
+    .dark {
+        margin-top: 10px;
+        cursor: pointer;
     }
 </style>
